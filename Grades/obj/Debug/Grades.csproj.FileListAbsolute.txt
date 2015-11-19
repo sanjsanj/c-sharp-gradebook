@@ -1,0 +1,6 @@
+\\vmware-host\shared folders\documents\visual studio 2015\Projects\Grades\Grades\bin\Debug\Grades.exe.config
+\\vmware-host\shared folders\documents\visual studio 2015\Projects\Grades\Grades\bin\Debug\Grades.exe
+\\vmware-host\shared folders\documents\visual studio 2015\Projects\Grades\Grades\bin\Debug\Grades.pdb
+\\vmware-host\shared folders\documents\visual studio 2015\Projects\Grades\Grades\obj\Debug\Grades.csprojResolveAssemblyReference.cache
+\\vmware-host\shared folders\documents\visual studio 2015\Projects\Grades\Grades\obj\Debug\Grades.exe
+\\vmware-host\shared folders\documents\visual studio 2015\Projects\Grades\Grades\obj\Debug\Grades.pdb
