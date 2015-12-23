@@ -11,6 +11,9 @@ namespace Grades
             //synth.Speak("Hello! This is the grade book program");
 
             GradeBook book = new GradeBook();
+
+            book.NameChanged += new NameChangedDelegate(OnNameChanged);
+
             book.Name = "Bob's Gradebook";
             book.Name = null; //gets ignored by setter logic
             book.AddGrade(91);
@@ -22,6 +25,16 @@ namespace Grades
             WriteResult("Average", stats.AverageGrade);
             WriteResult("Highest", (int)stats.HighestGrade);
             WriteResult("Lowest", stats.LowestGrade);
+        }
+
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
+        {
+            Console.WriteLine($"Gradebook changing name from {args.existingName} to {args.newName}");
+        }
+
+        static void OnNameChanged2(string existingName, string newName)
+        {
+            Console.WriteLine($"***");
         }
 
         static void WriteResult(string description, string result)
