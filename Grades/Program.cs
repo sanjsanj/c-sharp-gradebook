@@ -12,10 +12,9 @@ namespace Grades
 
             GradeBook book = new GradeBook();
 
-            book.NameChanged += new NameChangedDelegate(OnNameChanged);
+            book.NameChanged += OnNameChanged;
 
             book.Name = "Bob's Gradebook";
-            book.Name = null; //gets ignored by setter logic
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
@@ -29,12 +28,7 @@ namespace Grades
 
         static void OnNameChanged(object sender, NameChangedEventArgs args)
         {
-            Console.WriteLine($"Gradebook changing name from {args.existingName} to {args.newName}");
-        }
-
-        static void OnNameChanged2(string existingName, string newName)
-        {
-            Console.WriteLine($"***");
+            Console.WriteLine($"Gradebook changing name from {args.ExistingName} to {args.NewName}");
         }
 
         static void WriteResult(string description, string result)
