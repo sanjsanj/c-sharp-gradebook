@@ -1,15 +1,40 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Grades.Tests.Types
 {
     [TestClass]
     public class ReferenceTypeTests
     {
+        [TestMethod]
+        public void ValueTypesPassByValue()
+        {
+            int x = 46;
+            IncrementNumber(x);
+
+            Assert.AreEqual(46, x);
+        }
+
+        private void IncrementNumber(int number)
+        {
+            number += 1;
+        }
+
+        [TestMethod]
+        public void ReferenceTypesPassByValue()
+        {
+            GradeBook book1 = new GradeBook();
+            GradeBook book2 = book1;
+
+            GiveBookName(book2);
+            Assert.AreEqual(book1.Name, "A grade book");
+        }
+
+        private void GiveBookName(GradeBook book)
+        {
+            book.Name = "A grade book";
+        }
+
         [TestMethod]
         public void StringComparisons()
         {
