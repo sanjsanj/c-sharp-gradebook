@@ -1,4 +1,5 @@
-﻿using System.Speech.Synthesis;
+﻿using System;
+using System.Speech.Synthesis;
 
 namespace Grades
 {
@@ -6,8 +7,8 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            SpeechSynthesizer synth = new SpeechSynthesizer();
-            synth.Speak("Hello! This is the grade book program");
+            //SpeechSynthesizer synth = new SpeechSynthesizer();
+            //synth.Speak("Hello! This is the grade book program");
 
             GradeBook book = new GradeBook();
             book.AddGrade(91);
@@ -15,9 +16,19 @@ namespace Grades
             book.AddGrade(75);
 
             GradeStatistics stats = book.ComputeStatistics();
-            System.Console.WriteLine(stats.AverageGrade);
-            System.Console.WriteLine(stats.HighestGrade);
-            System.Console.WriteLine(stats.LowestGrade);
+            WriteResult("Average", stats.AverageGrade);
+            WriteResult("Highest", (int)stats.HighestGrade);
+            WriteResult("Lowest", stats.LowestGrade);
+        }
+
+        static void WriteResult(string description, int result)
+        {
+            Console.WriteLine(description + ": " + result);
+        }
+
+        static void WriteResult(string description, float result)
+        {
+            Console.WriteLine($"{description}: {result:F2}");
         }
     }
 }
