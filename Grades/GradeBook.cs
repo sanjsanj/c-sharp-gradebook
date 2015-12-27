@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Grades
 {
@@ -28,6 +29,14 @@ namespace Grades
             return stats;
         }
 
+        public void WriteGrades(TextWriter destination)
+        {
+            for (int i = 0; i < grades.Count; i++)
+            {
+                destination.WriteLine(grades[i]);
+            }
+        }
+
         public void AddGrade(float grade)
         {
             grades.Add(grade);
@@ -48,8 +57,6 @@ namespace Grades
                         NameChangedEventArgs args = new NameChangedEventArgs();
                         args.ExistingName = _name;
                         args.NewName = value;
-
-                        //NameChanged(this, args);
                     }
                     _name = value;
                 }
