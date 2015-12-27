@@ -9,7 +9,17 @@ namespace Grades
         {
             GradeBook book = new GradeBook();
 
-            book.Name = "Bob's Gradebook";
+            try
+            {
+                Console.WriteLine("Enter a gradebook name");
+                book.Name = Console.ReadLine();
+            }
+
+            catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
