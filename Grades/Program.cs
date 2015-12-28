@@ -7,23 +7,11 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeBook book = new GradeBook();
+            GradeBook book = new ThrowAwayGradeBook();
 
-            try
-            {
-                Console.WriteLine("Enter a gradebook name");
-                book.Name = Console.ReadLine();
-            }
-
-            catch(ArgumentException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            book.AddGrade(91);
-            book.AddGrade(89.5f);
-            book.AddGrade(75);
-            book.WriteGrades(Console.Out);
+            //GetGradeBookName(book);
+            AddGradesToGradebook(book);
+            //book.WriteGrades(Console.Out);
 
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Name", book.Name);
@@ -31,6 +19,27 @@ namespace Grades
             WriteResult("Highest", stats.HighestGrade);
             WriteResult("Lowest", stats.LowestGrade);
             WriteResult(stats.Description, stats.LetterGrade);
+        }
+
+        static void GetGradeBookName(GradeBook book)
+        {
+            try
+            {
+                Console.WriteLine("Enter a gradebook name");
+                book.Name = Console.ReadLine();
+            }
+
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        static void AddGradesToGradebook(GradeBook book)
+        {
+            book.AddGrade(91);
+            book.AddGrade(89.5f);
+            book.AddGrade(75);
         }
 
         static void WriteResult(string description, string result)

@@ -70,6 +70,6 @@ namespace Grades
         public NameChangedDelegate NameChanged;
 
         private string _name;
-        private List<float> grades;
+        protected List<float> grades;
     }
 }
