@@ -7,12 +7,16 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeTracker book = CreateGradeBook();
+            IGradeTracker book = CreateGradeBook();
 
             //GetGradeBookName(book);
             AddGradesToGradebook(book);
             //book.WriteGrades(Console.Out);
+            WriteResults(book);
+        }
 
+        private static void WriteResults(IGradeTracker book)
+        {
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Name", book.Name);
             WriteResult("Average", stats.AverageGrade);
@@ -21,12 +25,12 @@ namespace Grades
             WriteResult(stats.Description, stats.LetterGrade);
         }
 
-        private static GradeTracker CreateGradeBook()
+        private static IGradeTracker CreateGradeBook()
         {
             return new ThrowAwayGradeBook();
         }
 
-        static void GetGradeBookName(GradeTracker book)
+        static void GetGradeBookName(IGradeTracker book)
         {
             try
             {
@@ -40,7 +44,7 @@ namespace Grades
             }
         }
 
-        static void AddGradesToGradebook(GradeTracker book)
+        static void AddGradesToGradebook(IGradeTracker book)
         {
             book.AddGrade(91);
             book.AddGrade(89.5f);
