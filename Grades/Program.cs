@@ -7,7 +7,7 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeBook book = new ThrowAwayGradeBook();
+            GradeBook book = CreateGradeBook();
 
             //GetGradeBookName(book);
             AddGradesToGradebook(book);
@@ -19,6 +19,11 @@ namespace Grades
             WriteResult("Highest", stats.HighestGrade);
             WriteResult("Lowest", stats.LowestGrade);
             WriteResult(stats.Description, stats.LetterGrade);
+        }
+
+        private static GradeBook CreateGradeBook()
+        {
+            return new ThrowAwayGradeBook();
         }
 
         static void GetGradeBookName(GradeBook book)
